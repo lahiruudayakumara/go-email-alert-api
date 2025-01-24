@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  email-alert:
+    build: .
+    container_name: email-alert-api
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8081:8081"
+    networks:
+      - email-alert-network
+
+networks:
+  email-alert-network:
+    driver: bridge
